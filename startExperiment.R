@@ -458,7 +458,7 @@
 
 
     # subfunction to create accuracy plot
-    createAccuracyPlot = function (datasets, outputFile) {
+    createAccuracyPlot = function (datasets, outputFile, legend = FALSE, mar = NULL, legendX = -0.3, legendY = 0.47) {
         bp = list()
         q = 1
         for (d in datasets) {
@@ -472,11 +472,16 @@
         pdf (file.path(results.path, outputFile))
         
         # generate barplot
+        if (is.null (mar) == TRUE) {
         par(mar=c(2.2, 5, 0.1, 0)) # bottom, left, top, right
+        } else {
+            par (mar = mar)
+        }
+        
         barplot (as.matrix(as.data.frame(bp)), main="", ylab="Absolute Error", 
             beside = TRUE, 
             col = myPalette(length(solvers)), 
-            cex.names = 2.0, 
+            cex.names = 1.87, 
             cex.axis = 2.0,
             cex.lab = 2.0)
             
@@ -501,7 +506,9 @@
             lines(finalLine, lwd = 4)
         }
 
-        legend(-0.3, 0.47, solvers, cex=1.9, fill=myPalette(length(solvers)), bty = "n")
+        if (legend == TRUE) {
+            legend(legendX, legendY, solvers, cex=1.9, fill=myPalette(length(solvers)), bty = "n")
+        }
         dev.off()
     }
     
@@ -526,7 +533,7 @@
         barplot (as.matrix(as.data.frame(bpT)), main="", ylab="Factor (log_10)", 
             beside = TRUE, 
             col = myPalette(length(solvers)), 
-            cex.names = 2.0, 
+            cex.names = 1.875, 
             cex.axis = 2.0,
             cex.lab = 2.0)
         dev.off()
@@ -547,12 +554,12 @@
     
     # generate all three plots, but first one=one used in the paper
     datasets = c("aXa", "cod-rna", "mnist", "poker")
-    createAccuracyPlot (datasets, "plot_accuracy.pdf")
+    createAccuracyPlot (datasets, "plot_accuracy.pdf", legend = TRUE)
 
     datasets = c("arthrosis", "covtype", "spektren", "wXa")
-    createAccuracyPlot (datasets, "plot_accuracy_2.pdf")
+    createAccuracyPlot (datasets, "plot_accuracy_2.pdf", legend = TRUE, legendX = 17.5)
 
     datasets = c("protein", "ijcnn1", "shuttle", "vehicle")
-    createAccuracyPlot (datasets, "plot_accuracy_3.pdf")
+    createAccuracyPlot (datasets, "plot_accuracy_3.pdf", legend = TRUE, legendX =10.0)
 
         
