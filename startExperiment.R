@@ -331,7 +331,6 @@
     
 ### 6. statistical tests
 
-if (1 == 0) {
     cat ("### Statistical Tests.\n")
 
     # generate frame for friedman test
@@ -396,7 +395,7 @@ if (1 == 0) {
     badGrpH = names(pL[p.adjust(pL, method = "holm")>0.05])
     cat("  Good/Unconclusive performing group:", goodGrpH, "\n")
     cat("  Bad performing group:", badGrpH, "\n")
-}
+
 
     
 ### 7.  results: timing tables
