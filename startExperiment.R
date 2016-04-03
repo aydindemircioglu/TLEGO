@@ -24,18 +24,20 @@
     gamma =  makeNumericParam("gamma", lower = -15, upper = 15, trafo = function(x) 2^x)
     parameter.set = makeParamSet (cost, gamma)
     
+
     # EGO settings
     iterations = 2
-    initial.design = 4
-    points.per.iteration = 2
-    cpus = 2
+    initial.design = 20
+    points.per.iteration = 10
+    cpus = 10
 
     
     # all solver and data sets 
-    datasets = c("shuttle")
-    solvers = c("BSGD")
+    datasets = c("arthrosis", "aXa", "cod-rna", "covtype", "ijcnn1", "mnist", "poker", "protein", "shuttle", "spektren", "vehicle", "wXa")
+    solvers = c("BSGD", "LASVM", "LIBSVM", "CVM", "BVM", "SVMperf")
     repl = 1
- 
+    
+    
     # determine wall time heuristically
     wallTime = -1
 
@@ -329,7 +331,7 @@
     
 ### 6. statistical tests
 
-
+if (1 == 0) {
     cat ("### Statistical Tests.\n")
 
     # generate frame for friedman test
@@ -394,7 +396,7 @@
     badGrpH = names(pL[p.adjust(pL, method = "holm")>0.05])
     cat("  Good/Unconclusive performing group:", goodGrpH, "\n")
     cat("  Bad performing group:", badGrpH, "\n")
-
+}
 
     
 ### 7.  results: timing tables
@@ -541,6 +543,8 @@
     }
 
 
+    
+    
     # generate all three plots, but first one=one used in the paper
     datasets = c("aXa", "cod-rna", "mnist", "poker")
     createTimingPlot (datasets, "plot_timing.pdf")
