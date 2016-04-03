@@ -8,7 +8,7 @@ source ("./helpers/fOptValues.R")
 
 
 optValuesPoint = function (registry = NULL, dataset = NULL, solver = NULL, 
-	repl = 1, splitsPath = "../splits", modelFile = NULL, experiment = "optValues", ...) {
+	repl = 1, splitsPath = "./splits", modelFile = NULL, experiment = "optValues", ...) {
 
 	if ((is.null(modelFile) == TRUE))
 		stop ("Not given any model file!")

@@ -58,7 +58,7 @@ validateRows = function (registry = NULL, mtable = NULL,
 			test = useTestData,
 			modelFile= modelFile,
 			mRow = mtable[r,],
-			splitsPath = "../splits")
+			splitsPath = "./splits")
 
         if (is.null (snapshotModelFilename) == FALSE) {
             mRow = mtable[r,]
@@ -72,7 +72,7 @@ validateRows = function (registry = NULL, mtable = NULL,
                 test = useTestData,
                 modelFile= snapshotModelFile,
                 mRow = mRow,
-                splitsPath = "../splits")
+                splitsPath = "./splits")
         }
 			
 	}

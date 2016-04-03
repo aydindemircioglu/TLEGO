@@ -165,7 +165,7 @@
 		trainBinaryOutputPattern = c('saveExponential : set exponential',
 			'.q : quiet mode .no outputs')
 
-		binaryPath = findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
 
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found train binary at %s", binaryPath) 
@@ -176,7 +176,7 @@
 		testBinaryPattern = "^svm-predict$"
 		testBinaryOutputPattern = 'for one-class SVM only 0 is supported'
 
-		binaryPath = findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
 		
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found test binary at %s", binaryPath) 

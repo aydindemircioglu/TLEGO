@@ -35,7 +35,7 @@ optValuesRows = function (registry = NULL, mtable = NULL) {
 			C = mtable[r,]$C,
 			modelFile= modelFile,
 			mRow = mtable[r,],
-			splitsPath = "../splits")
+			splitsPath = "./splits")
 	}
 
 	return (registry)

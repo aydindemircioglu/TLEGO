@@ -316,7 +316,7 @@
 		trainBinaryPattern = "^budgetedsvm-train$"
 		trainBinaryOutputPattern = c('saveExponential : set exponential', 'budget maintenance in BSGD')
 
-		binaryPath = findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
 
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found train binary at %s", binaryPath) 
@@ -327,7 +327,7 @@
 		testBinaryPattern = "^budgetedsvm-predict$"
 		testBinaryOutputPattern = 'training and test file are loaded in chunks so'
 
-		binaryPath = findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
 		
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found test binary at %s", binaryPath) 

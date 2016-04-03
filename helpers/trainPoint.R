@@ -8,7 +8,7 @@ source ("./helpers/fExecuteTLSVMSolver.R")
 
 
 trainPoint = function (registry = NULL, dataset = NULL, solver = NULL, verbose = FALSE, #C = NULL, g = NULL,  
-	wallTime = NULL, repl = 1, subsamplingRate = 1.0, splitsPath = "../splits", experimentID = NULL, ...) {
+	wallTime = NULL, repl = 1, subsamplingRate = 1.0, splitsPath = "./splits", experimentID = NULL, ...) {
 
 	if (is.null (experimentID) == TRUE) {
         experimentID = registry$id

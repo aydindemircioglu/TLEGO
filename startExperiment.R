@@ -26,14 +26,14 @@
     
     # EGO settings
     iterations = 2
-    initial.design = 20
-    points.per.iteration = 10
-    cpus = 10
+    initial.design = 4
+    points.per.iteration = 2
+    cpus = 2
 
     
     # all solver and data sets 
-    datasets = c("arthrosis", "aXa", "cod-rna", "covtype", "ijcnn1", "mnist", "poker", "protein", "shuttle", "spektren", "vehicle", "wXa")
-    solvers = c("BSGD", "LASVM", "LIBSVM", "CVM", "BVM", "SVMperf")
+    datasets = c("shuttle")
+    solvers = c("BSGD")
     repl = 1
  
     # determine wall time heuristically
@@ -300,7 +300,7 @@
             errorOverallBest = min (subset(results, dataset == d )$error)
             
             # compure some statistics
-            errorTLfinal = subset(finalResultsTable, solver == s & dataset == d )$testError
+            errorTLfinal = subset(finalTestTable, solver == s & dataset == d )$testError
             errorTLDiff = (errorOverallBest - errorTLfinal)
             errorTLSolverDiff = (errorSolverBest - errorTLfinal)
             
@@ -333,12 +333,13 @@
     cat ("### Statistical Tests.\n")
 
     # generate frame for friedman test
-    fM = matrix(0, nrow = length(unique(finalResultsTable$dataset)), ncol = length(unique(finalResultsTable$solver)), byrow = TRUE)
+    fM = matrix(0, nrow = length(unique(finalTestTable$dataset)), ncol = length(unique(finalTestTable$solver)), byrow = TRUE)
 
-    datasets = unfactorize(as.character(unique(finalResultsTable$dataset)))
-    solvers = unfactorize(as.character(unique(finalResultsTable$solver)))
+    print (finalTestTable)
+    datasets = unfactorize(as.character(unique(finalTestTable$dataset)))
+    solvers = unfactorize(as.character(unique(finalTestTable$solver)))
     for (si in 1:length(solvers)) {
-        fM[,si] = subset (finalResultsTable, solver == solvers[si])$testError
+        fM[,si] = subset (finalTestTable, solver == solvers[si])$testError
     }
     colnames(fM) = solvers
     rownames(fM) = datasets
@@ -417,7 +418,7 @@
             
             ## TL-variant
             modelSelectionTime = sum (subset(EGOResultsTable, solver == s & dataset == d )$EGOtime) 
-            finalModelTrainingTime =  sum (subset(finalResultsTable, solver == s & dataset == d )$trainTime)
+            finalModelTrainingTime =  sum (subset(finalTestTable, solver == s & dataset == d )$trainTime)
 
             timeTL = modelSelectionTime + finalModelTrainingTime 
             egovsfinalTimeFactor = modelSelectionTime/finalModelTrainingTime 

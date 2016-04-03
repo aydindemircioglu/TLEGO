@@ -50,7 +50,7 @@ trainRows = function (registry = NULL, mtable = NULL, verbose = FALSE) {
 			#repl = repl, 
 			#modelFile= modelFile,
 			mRow = mtable[r,],
-			splitsPath = "../splits"),
+			splitsPath = "./splits"),
 			as.list (mtable[r,]) ) )
 	}
 

@@ -8,7 +8,7 @@ source ("./helpers/fExecuteTLSVMSolver.R")
 
 
 evaluatePoint = function (registry = NULL, dataset = NULL, solver = NULL, #C = NULL, g = NULL, 
-	wallTime = NULL, repl = 1, subsamplingRate = 1.0, splitsPath = "../splits", experimentID = "myexp", ...) {
+	wallTime = NULL, repl = 1, subsamplingRate = 1.0, splitsPath = "./splits", experimentID = "myexp", ...) {
 
 	if ((is.null(registry) == TRUE))
 		stop ("Not given any registry!")

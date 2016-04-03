@@ -155,7 +155,7 @@
 			'-A saveExponential : set exponential of time interval in seconds to save intermediate',
 			'CVM.BVM, default eps')
 			
-		binaryPath = findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
 
 
 		if (verbose == TRUE) {
@@ -167,7 +167,7 @@
 		testBinaryPattern = "^svm-predict$"
 		testBinaryOutputPattern = 'Usage: bvm-predict .options. test_file model_file output_file'
 
-		binaryPath = findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
 		
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found test binary at %s", binaryPath) 

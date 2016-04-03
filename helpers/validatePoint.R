@@ -8,7 +8,7 @@ source ("./helpers/fValidateTLSVM.R")
 
 
 validatePoint = function (registry = NULL, dataset = NULL, solver = NULL, #C = NULL, g = NULL, 
-        repl = NULL, splitsPath = "../splits", modelFile = NULL, test = FALSE, 
+        repl = NULL, splitsPath = "./splits", modelFile = NULL, test = FALSE, 
         verbose = TRUE,
         experimentID = NULL, ...)
 {

@@ -395,7 +395,7 @@
 			'saveExponential : set exponential of time interval in seconds',
 			'usage: svm_struct_learn .options. example_file model_file')
 			
-		binaryPath = findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
 
 
 		if (verbose == TRUE) {
@@ -407,7 +407,7 @@
 		testBinaryPattern = "^svm_perf_classify$"
 		testBinaryOutputPattern = 'usage: svm_struct_classify .options. example_file model_file output_file'
 
-		binaryPath = findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
 		
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found test binary at %s", binaryPath) 

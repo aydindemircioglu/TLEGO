@@ -172,7 +172,7 @@
 		
 		trainBinaryPattern = "^la_svm$"
 		trainBinaryOutputPattern = '-A saveExponential : set exponential of time interval in seconds to save intermediate'
-		binaryPath = findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, trainBinaryPattern, trainBinaryOutputPattern, verbose = verbose)
 
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found train binary at %s", binaryPath) 
@@ -183,7 +183,7 @@
 		testBinaryPattern = "^la_test$"
 		testBinaryOutputPattern = 'Usage: la_test .options. test_set_file model_file output_file'
 
-		binaryPath = findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
+		binaryPath = SVMBridge:::findBinary (searchPath, testBinaryPattern, testBinaryOutputPattern, verbose = verbose)
 		
 		if (verbose == TRUE) {
 			BBmisc::messagef("--> Found test binary at %s", binaryPath) 

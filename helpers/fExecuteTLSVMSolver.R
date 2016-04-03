@@ -3,8 +3,7 @@ fExecuteTLSVMSolver = function(static, dynamic,
 		extraParameter = '',
 		...) 
 	{
-		library(devtools)
-		load_all("../SVMBridge/")
+		library(SVMBridge)
 		
 		# find package for solver (need to search very 'broad' because of CVM/BVM)
 		wSolver = paste(static$solver, "walltime", sep = "_")
